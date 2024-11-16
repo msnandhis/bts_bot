@@ -2,16 +2,18 @@ import asyncio
 import requests
 import json
 import hashlib
+import os
 import hmac
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes, ConversationHandler
 
 # Token for Telegram Bot
-TOKEN = '7892667564:AAFN4MoYZnpgRh8YvGmzMudOPMC-LK3_pP8'
+TOKEN = os.getenv("TOKEN")
 
 # Cryptomus API Key and Merchant ID
-CRYPTOMUS_API_KEY = 'aNb9eel5aT4wK3vMXzrltZrIdga9kFXT3dPrtFETjFxHxAaYkCjBcD0R0KiRK1oPKSxlirxiFNtRwzvvEmlUm1tt9xcaq5B19oKb0az5yh5MA282xRTOwS0hcX1H48WZ'
-CRYPTOMUS_MERCHANT_ID = 'dc812f76-e531-4a10-9df8-2a9a1e4b76d1'
+
+CRYPTOMUS_API_KEY = os.getenv("CRYPTOMUS_API_KEY")
+CRYPTOMUS_MERCHANT_ID = os.getenv("CRYPTOMUS_MERCHANT_ID")
 
 # States for conversation
 STARS, RECIPIENT, TELEGRAM_ID, CRYPTO, PAYMENT = range(5)
